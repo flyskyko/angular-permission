@@ -134,7 +134,6 @@ describe('Module: Permission', function () {
         changePermissionDeniedHasBeenCalled = true;
       });
 
-console.log('dd');
       $rootScope.$digest();
       expect($state.current.name).toBe('accepted');
       expect(changePermissionAcceptedHasBeenCalled).toBeTruthy();
