@@ -35,7 +35,7 @@
 
         if (permissions) {
           event.preventDefault();
-	  toState = angular.extend({'$$finishAuthorize': true}, toState);
+          toState = angular.extend({'$$finishAuthorize': true}, toState);
 
           Permission.authorize(permissions, toParams).then(function () {
             // If authorized, use call state.go without triggering the event.
