@@ -37,6 +37,10 @@
           event.preventDefault();
           toState = angular.extend({'$$finishAuthorize': true}, toState);
 
+          if ($rootScope.$broadcast('$stateChangePermissionStart', toState, toParams).defaultPrevented) {
+            return;
+          }
+
           Permission.authorize(permissions, toParams).then(function () {
             // If authorized, use call state.go without triggering the event.
             // Then trigger $stateChangeSuccess manually to resume the rest of the process
